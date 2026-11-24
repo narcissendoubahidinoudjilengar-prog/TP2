@@ -16,43 +16,5 @@
 
         <ul id="liste"></ul>
     </main>
-
-    <script>
-        const formulaire = document.getElementById("formulaire");
-        const saisie = document.getElementById("saisie");
-        const liste = document.getElementById("liste");
-
-        formulaire.addEventListener("submit", function (evenement) {
-            evenement.preventDefault();
-
-            const texte = saisie.value.trim();
-            if (texte === "") return;
-
-            const tache = document.createElement("li");
-
-            const caseTerminee = document.createElement("input");
-            caseTerminee.type = "checkbox";
-
-            const description = document.createElement("span");
-            description.textContent = texte;
-
-            const boutonSupprimer = document.createElement("button");
-            boutonSupprimer.type = "button";
-            boutonSupprimer.textContent = "Supprimer";
-
-            caseTerminee.addEventListener("change", function () {
-                description.style.textDecoration = caseTerminee.checked ? "line-through" : "none";
-            });
-
-            boutonSupprimer.addEventListener("click", function () {
-                tache.remove();
-            });
-
-            tache.append(caseTerminee, description, boutonSupprimer);
-            liste.appendChild(tache);
-            saisie.value = "";
-            saisie.focus();
-        });
-    </script>
 </body>
 </html>
